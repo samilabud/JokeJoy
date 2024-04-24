@@ -5,7 +5,7 @@ import "./globals.css";
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="flex flex-col items-center xl:block">
       <Head>
         <title>JokeJoy App</title>
         <meta name="description" content="A list of jokes to make you joy!" />

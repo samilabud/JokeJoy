@@ -7,6 +7,6 @@ body {
 }
 
 #left-navigation {
-  @apply w-2/12 p-3 fixed top-1/4 mt-12 rounded-md shadow-md shadow-black box-border border-spacing-1 border-solid border-black border-2 m-3;
+  @apply w-2/12 p-3 xl:fixed top-1/4 mt-12 rounded-md shadow-md shadow-black box-border border-spacing-1 border-solid border-black border-2 m-3;
   min-width: 270px;
 }

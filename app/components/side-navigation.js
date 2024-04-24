@@ -11,13 +11,13 @@ import ShuffleOutlinedIcon from "@mui/icons-material/ShuffleOutlined";
 const SideNavigation = () => (
   <nav id="left-navigation">
     <div>
-      <h3 className="text-2xl font-bold">Jokes Menu</h3>
+      <h3 className="text-2xl font-bold text-amber-600">Jokes Menu</h3>
     </div>
     <List>
       <ListItem>
         <ListItemButton>
           <ListItemIcon>
-            <RocketLaunchOutlinedIcon />
+            <RocketLaunchOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
           <ListItemText primary="Latest Jokes" />
         </ListItemButton>
@@ -25,7 +25,7 @@ const SideNavigation = () => (
       <ListItem>
         <ListItemButton>
           <ListItemIcon>
-            <SentimentVerySatisfiedOutlinedIcon />
+            <SentimentVerySatisfiedOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
           <ListItemText primary="General Jokes" />
         </ListItemButton>
@@ -33,7 +33,7 @@ const SideNavigation = () => (
       <ListItem>
         <ListItemButton>
           <ListItemIcon>
-            <MouseOutlinedIcon />
+            <MouseOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
           <ListItemText primary="Programming Jokes" />
         </ListItemButton>
@@ -41,7 +41,7 @@ const SideNavigation = () => (
       <ListItem>
         <ListItemButton>
           <ListItemIcon>
-            <ShuffleOutlinedIcon />
+            <ShuffleOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
           <ListItemText primary="Random Jokes" />
         </ListItemButton>
