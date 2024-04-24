@@ -7,6 +7,8 @@ import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined";
 import MouseOutlinedIcon from "@mui/icons-material/MouseOutlined";
 import SentimentVerySatisfiedOutlinedIcon from "@mui/icons-material/SentimentVerySatisfiedOutlined";
 import ShuffleOutlinedIcon from "@mui/icons-material/ShuffleOutlined";
+import RoofingOutlinedIcon from "@mui/icons-material/RoofingOutlined";
+import DoorFrontOutlinedIcon from "@mui/icons-material/DoorFrontOutlined";
 
 const SideNavigation = () => (
   <nav id="left-navigation">
@@ -14,6 +16,14 @@ const SideNavigation = () => (
       <h3 className="text-2xl font-bold text-amber-600">Jokes Menu</h3>
     </div>
     <List>
+      <ListItem>
+        <ListItemButton>
+          <ListItemIcon>
+            <RoofingOutlinedIcon sx={{ color: "#B8A5DF" }} />
+          </ListItemIcon>
+          <ListItemText primary="All Jokes" />
+        </ListItemButton>
+      </ListItem>
       <ListItem>
         <ListItemButton>
           <ListItemIcon>
@@ -36,6 +46,14 @@ const SideNavigation = () => (
             <MouseOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
           <ListItemText primary="Programming Jokes" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem>
+        <ListItemButton>
+          <ListItemIcon>
+            <DoorFrontOutlinedIcon sx={{ color: "#B8A5DF" }} />
+          </ListItemIcon>
+          <ListItemText primary="Knock-Knock Jokes" />
         </ListItemButton>
       </ListItem>
       <ListItem>

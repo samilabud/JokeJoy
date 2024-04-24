@@ -9,6 +9,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>JokeJoy App</title>
         <meta name="description" content="A list of jokes to make you joy!" />
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
       </Head>
 
       <SideNavigation />
