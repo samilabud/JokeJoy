@@ -8,5 +8,15 @@ body {
 
 #left-navigation {
   @apply w-2/12 p-3 xl:fixed top-1/4 mt-2 rounded-md shadow-md shadow-black box-border border-spacing-1 border-solid border-black border-2 m-3;
-  min-width: 270px;
+  min-width: 245px;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
 }

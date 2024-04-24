@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
         id="main-container"
         className="h-svh flex flex-col justify-between items-center"
       >
-        <main className="flex flex-col items-center justify-between p-24">
+        <main className="flex flex-col items-center justify-between p-5 m-5 ml-10">
           <div className="relative flex place-items-center">
             <Image
               className="shadow-sm shadow-black relative hover:-rotate-2 transition-all duration-500"
@@ -28,9 +28,10 @@ const Layout = ({ children }) => {
               priority
             />
           </div>
+          <hr className="w-96 mt-10 hidden xl:block" />
           {children}
         </main>
-        <footer>
+        <footer className="text-center">
           Copyright,{" "}
           <a href="https://samilabud.com" target="_blank">
             Samil Abud

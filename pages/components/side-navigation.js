@@ -9,6 +9,7 @@ import SentimentVerySatisfiedOutlinedIcon from "@mui/icons-material/SentimentVer
 import ShuffleOutlinedIcon from "@mui/icons-material/ShuffleOutlined";
 import RoofingOutlinedIcon from "@mui/icons-material/RoofingOutlined";
 import DoorFrontOutlinedIcon from "@mui/icons-material/DoorFrontOutlined";
+import Link from "next/link";
 
 const SideNavigation = () => (
   <nav id="left-navigation">
@@ -21,7 +22,9 @@ const SideNavigation = () => (
           <ListItemIcon>
             <RoofingOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
-          <ListItemText primary="All Jokes" />
+          <Link href="/">
+            <ListItemText primary="All Jokes" />
+          </Link>
         </ListItemButton>
       </ListItem>
       <ListItem>
@@ -29,7 +32,9 @@ const SideNavigation = () => (
           <ListItemIcon>
             <RocketLaunchOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
-          <ListItemText primary="Latest Jokes" />
+          <Link href="/latest">
+            <ListItemText primary="Latest Jokes" />
+          </Link>
         </ListItemButton>
       </ListItem>
       <ListItem>
