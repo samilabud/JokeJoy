@@ -3,14 +3,21 @@ import { fetchPaginateJokes } from "../utils/fetch.jokes";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const Jokes = ({ title, jokes, sortKey, sortOrder, showLoadMore = true }) => {
+const Jokes = ({
+  title,
+  jokes,
+  sortKey,
+  sortOrder,
+  showLoadMore = true,
+  type = "all",
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(jokes);
   const page = useRef(1);
   const loadMoreData = async () => {
     setIsLoading(true);
     const newPage = page.current + 1;
-    const res = await fetchPaginateJokes(newPage, sortKey, sortOrder);
+    const res = await fetchPaginateJokes(newPage, sortKey, sortOrder, type);
     const newData = await res.json();
     setData([...data, ...newData]);
     page.current = newPage;
@@ -24,7 +31,7 @@ const Jokes = ({ title, jokes, sortKey, sortOrder, showLoadMore = true }) => {
         {data.map((joke) => (
           <div
             className="joke-block flex flex-col shadow-md shadow-black border-solid border-black border-2 m-3 p-3 rounded-md max-w-72 min-w-56"
-            key={`joke.id`}
+            key={joke.id}
           >
             <i className="text-sm self-end">@{joke.type}</i>
             <h4 className="text-lg font-medium">{joke.setup}</h4>

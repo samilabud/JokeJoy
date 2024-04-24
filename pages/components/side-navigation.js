@@ -42,7 +42,9 @@ const SideNavigation = () => (
           <ListItemIcon>
             <SentimentVerySatisfiedOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
-          <ListItemText primary="General Jokes" />
+          <Link href="/general">
+            <ListItemText primary="General Jokes" />
+          </Link>
         </ListItemButton>
       </ListItem>
       <ListItem>
