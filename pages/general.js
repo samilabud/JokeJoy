@@ -2,10 +2,10 @@ import Layout from "./components/layout";
 import Jokes from "./components/jokes.component";
 import { fetchPaginateJokes } from "./utils/fetch.jokes";
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps() {
   const initialPageNumber = 1;
-
-  const { sortKey = "id", sortOrder = "asc" } = query;
+  const sortKey = "id";
+  const sortOrder = "asc";
 
   const res = await fetchPaginateJokes(
     initialPageNumber,
@@ -20,19 +20,13 @@ export async function getServerSideProps({ query }) {
   }
 
   const data = await res.json();
-  return { props: { data, sortKey, sortOrder } };
+  return { props: { data } };
 }
 
-export default function HomePage({ data, sortKey, sortOrder }) {
+export default function HomePage({ data }) {
   return (
     <Layout>
-      <Jokes
-        title="General jokes"
-        jokes={data}
-        sortKey={sortKey}
-        sortOrder={sortOrder}
-        type="general"
-      />
+      <Jokes title="General jokes" jokes={data} type="general" />
     </Layout>
   );
 }

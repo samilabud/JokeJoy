@@ -2,10 +2,10 @@ import Layout from "./components/layout";
 import Jokes from "./components/jokes.component";
 import { fetchPaginateJokes } from "./utils/fetch.jokes";
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps() {
   const initialPageNumber = 1;
-
-  const { sortKey = "id", sortOrder = "asc" } = query;
+  const sortKey = "id";
+  const sortOrder = "asc";
 
   const res = await fetchPaginateJokes(
     initialPageNumber,
@@ -16,11 +16,11 @@ export async function getServerSideProps({ query }) {
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data for general jokes");
+    throw new Error("Failed to fetch data for knock-knock jokes");
   }
 
   const data = await res.json();
-  return { props: { data, sortKey, sortOrder } };
+  return { props: { data } };
 }
 
 export default function HomePage({ data, sortKey, sortOrder }) {

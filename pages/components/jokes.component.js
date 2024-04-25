@@ -3,36 +3,89 @@ import { fetchPaginateJokes } from "../utils/fetch.jokes";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import VoteButton from "./vote.button.component";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
-const Jokes = ({
-  title,
-  jokes,
-  sortKey,
-  sortOrder,
-  showLoadMoreButton = true,
-  type = "all",
-}) => {
+const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [sortBy, setSortBy] = useState("id");
+  const [orderBy, setOrderBy] = useState("asc");
   const [showLoadMore, setShowLoadMore] = useState(showLoadMoreButton);
   const [data, setData] = useState(jokes);
   const page = useRef(1);
 
-  const loadMoreData = async () => {
+  const handleSortByChange = (event) => {
+    setSortBy(event.target.value);
+  };
+  const handleOrderByChange = (event) => {
+    setOrderBy(event.target.value);
+  };
+  const applyFilter = (e) => {
+    e.preventDefault();
+    loadMoreData(true);
+  };
+
+  const loadMoreData = async (reset = false) => {
     setIsLoading(true);
+    if (reset) {
+      page.current = 0;
+    }
     const newPage = page.current + 1;
-    const res = await fetchPaginateJokes(newPage, sortKey, sortOrder, type);
+    const res = await fetchPaginateJokes(newPage, sortBy, orderBy, type);
     const newData = await res.json();
     if (newData.length <= 0) {
       setShowLoadMore(false);
     }
-    setData([...data, ...newData]);
+    if (reset) {
+      setData(newData);
+    } else {
+      setData([...data, ...newData]);
+    }
     page.current = newPage;
     setIsLoading(false);
   };
 
   return (
     <div className="inline-block w-8/12 mt-10">
-      <h3 className="text-2xl font-bold text-amber-600 ml-3">{title}</h3>
+      <div className="flex w-full justify-between">
+        <h3 className="text-2xl font-bold text-amber-600 ml-3">{title}</h3>
+        <div className="flex justify-between w-2/6 min-w-96">
+          <div>
+            <span>Sort by:</span>
+            <Select
+              id="select-sort-key"
+              value={sortBy}
+              onChange={handleSortByChange}
+              className="h-10"
+            >
+              <MenuItem value="id">id</MenuItem>
+              <MenuItem value="type">Type</MenuItem>
+              <MenuItem value="setup">Setup</MenuItem>
+              <MenuItem value="punchline">Punchline</MenuItem>
+            </Select>
+          </div>
+          <div>
+            <span>Order by:</span>
+            <Select
+              id="select-order-by"
+              value={orderBy}
+              onChange={handleOrderByChange}
+              className="h-10"
+            >
+              <MenuItem value="asc">ASC</MenuItem>
+              <MenuItem value="desc">DESC</MenuItem>
+            </Select>
+          </div>
+          <Button
+            onClick={applyFilter}
+            variant="contained"
+            sx={{ backgroundColor: "#FF3F00" }}
+            className="hover:bg-orange-600 h-10"
+          >
+            Apply
+          </Button>
+        </div>
+      </div>
       <div id="jokes-container" className="flex flex-wrap">
         {data.map((joke) => (
           <div
