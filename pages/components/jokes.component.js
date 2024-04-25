@@ -8,10 +8,11 @@ const Jokes = ({
   jokes,
   sortKey,
   sortOrder,
-  showLoadMore = true,
+  showLoadMoreButton = true,
   type = "all",
 }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [showLoadMore, setShowLoadMore] = useState(showLoadMoreButton);
   const [data, setData] = useState(jokes);
   const page = useRef(1);
   const loadMoreData = async () => {
@@ -19,6 +20,9 @@ const Jokes = ({
     const newPage = page.current + 1;
     const res = await fetchPaginateJokes(newPage, sortKey, sortOrder, type);
     const newData = await res.json();
+    if (newData.length <= 0) {
+      setShowLoadMore(false);
+    }
     setData([...data, ...newData]);
     page.current = newPage;
     setIsLoading(false);
@@ -39,7 +43,7 @@ const Jokes = ({
           </div>
         ))}
       </div>
-      {showLoadMore && (
+      {showLoadMore ? (
         <div className="flex justify-end w-9/12">
           {isLoading ? (
             <CircularProgress sx={{ color: "#FF3F00" }} />
@@ -53,6 +57,10 @@ const Jokes = ({
               Load More
             </Button>
           )}
+        </div>
+      ) : (
+        <div className="flex justify-end w-9/12">
+          <span style={{ color: "#FF3F00" }}>No more jokes</span>
         </div>
       )}
     </div>

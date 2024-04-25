@@ -52,7 +52,9 @@ const SideNavigation = () => (
           <ListItemIcon>
             <MouseOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
-          <ListItemText primary="Programming Jokes" />
+          <Link href="/programming">
+            <ListItemText primary="Programming Jokes" />
+          </Link>
         </ListItemButton>
       </ListItem>
       <ListItem>
@@ -60,7 +62,9 @@ const SideNavigation = () => (
           <ListItemIcon>
             <DoorFrontOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
-          <ListItemText primary="Knock-Knock Jokes" />
+          <Link href="/knock-knock">
+            <ListItemText primary="Knock-Knock Jokes" />
+          </Link>
         </ListItemButton>
       </ListItem>
       <ListItem>
@@ -68,7 +72,9 @@ const SideNavigation = () => (
           <ListItemIcon>
             <ShuffleOutlinedIcon sx={{ color: "#B8A5DF" }} />
           </ListItemIcon>
-          <ListItemText primary="Random Jokes" />
+          <Link href="/random">
+            <ListItemText primary="Random Jokes" />
+          </Link>
         </ListItemButton>
       </ListItem>
     </List>
