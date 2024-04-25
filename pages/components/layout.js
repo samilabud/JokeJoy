@@ -1,7 +1,7 @@
 import Head from "next/head";
 import SideNavigation from "./side-navigation";
 import Image from "next/image";
-import "./globals.css";
+import "../../app/globals.css";
 
 const Layout = ({ children }) => {
   return (
