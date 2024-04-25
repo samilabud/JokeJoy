@@ -5,7 +5,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 const Jokes = ({ title, jokes }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState(jokes);
+  const [data, setData] = useState(jokes || []);
   const loadRandomJokes = async () => {
     setIsLoading(true);
     const res = await fetchRandomJokes();

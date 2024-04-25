@@ -11,7 +11,7 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
   const [sortBy, setSortBy] = useState("id");
   const [orderBy, setOrderBy] = useState("asc");
   const [showLoadMore, setShowLoadMore] = useState(showLoadMoreButton);
-  const [data, setData] = useState(jokes);
+  const [data, setData] = useState(jokes || []);
   const page = useRef(1);
 
   const handleSortByChange = (event) => {
