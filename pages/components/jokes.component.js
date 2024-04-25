@@ -49,28 +49,32 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
     <div className="inline-block w-8/12 mt-10">
       <div className="flex w-full justify-between">
         <h3 className="text-2xl font-bold text-amber-600 ml-3">{title}</h3>
-        <div className="flex justify-between w-2/6 min-w-96">
+        <div className="flex justify-between w-5/12 flex-wrap">
           <div>
-            <span>Sort by:</span>
+            <span id="sortByLabel" className="cursor-pointer">
+              Sort by:
+            </span>
             <Select
-              id="select-sort-key"
+              labelId="sortByLabel"
               value={sortBy}
               onChange={handleSortByChange}
-              className="h-10"
+              className="h-10 text-orange-500"
             >
-              <MenuItem value="id">id</MenuItem>
+              <MenuItem value="id">ID</MenuItem>
               <MenuItem value="type">Type</MenuItem>
               <MenuItem value="setup">Setup</MenuItem>
               <MenuItem value="punchline">Punchline</MenuItem>
             </Select>
           </div>
           <div>
-            <span>Order by:</span>
+            <span id="orderByLabel" className="cursor-pointer">
+              Order by:
+            </span>
             <Select
-              id="select-order-by"
+              labelId="orderByLabel"
               value={orderBy}
               onChange={handleOrderByChange}
-              className="h-10"
+              className="h-10 text-orange-500"
             >
               <MenuItem value="asc">ASC</MenuItem>
               <MenuItem value="desc">DESC</MenuItem>
@@ -105,7 +109,7 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
             <CircularProgress sx={{ color: "#FF3F00" }} />
           ) : (
             <Button
-              onClick={loadMoreData}
+              onClick={() => loadMoreData()}
               variant="contained"
               sx={{ backgroundColor: "#FF3F00" }}
               className="hover:bg-orange-600"
