@@ -1,6 +1,6 @@
 import Layout from "./components/layout";
 import Jokes from "./components/jokes.component";
-import { fetchPaginateJokes } from "./utils/fetch.jokes";
+import { fetchPaginateJokes } from "../app/utils/fetch.jokes";
 
 export async function getServerSideProps() {
   const initialPageNumber = 1;

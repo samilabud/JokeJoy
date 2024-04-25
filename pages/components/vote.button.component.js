@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { voteForJoke } from "../utils/fetch.jokes";
+import { voteForJoke } from "../../app/utils/fetch.jokes";
 import IconButton from "@mui/material/IconButton";
 import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
 

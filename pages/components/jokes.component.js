@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { fetchPaginateJokes } from "../utils/fetch.jokes";
+import { fetchPaginateJokes } from "../../app/utils/fetch.jokes";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import VoteButton from "./vote.button.component";

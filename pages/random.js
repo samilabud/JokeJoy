@@ -1,6 +1,6 @@
 import Layout from "./components/layout";
 import RandomJokes from "./components/random.jokes.component";
-import { fetchRandomJokes } from "./utils/fetch.jokes";
+import { fetchRandomJokes } from "../app/utils/fetch.jokes";
 
 export async function getServerSideProps() {
   const res = await fetchRandomJokes();

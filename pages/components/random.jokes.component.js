@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchRandomJokes } from "../utils/fetch.jokes";
+import { fetchRandomJokes } from "../../app/utils/fetch.jokes";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 
