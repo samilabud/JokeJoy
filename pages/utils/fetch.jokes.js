@@ -1,3 +1,8 @@
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? process.env.NEXT_PUBLIC_OFFICIAL_JOKE_API
+    : process.env.NEXT_PUBLIC_OFFICIAL_JOKE_API_DEV;
+
 export const fetchPaginateJokes = async (
   pageNumber,
   sortKey,
@@ -5,12 +10,8 @@ export const fetchPaginateJokes = async (
   type = "all"
 ) => {
   const pageSize = 10;
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_OFFICIAL_JOKE_API
-      : process.env.NEXT_PUBLIC_OFFICIAL_JOKE_API_DEV;
 
-  const url = `${baseUrl}/jokes/paginate/?pageSize=${pageSize}&pageNumber=${pageNumber}&sortKey=${sortKey}&sortOrder=${sortOrder}&type=${type}`;
+  const url = `${BASE_URL}/jokes/paginate/?pageSize=${pageSize}&pageNumber=${pageNumber}&sortKey=${sortKey}&sortOrder=${sortOrder}&type=${type}`;
   const res = await fetch(url, {
     method: "GET",
     headers: {
@@ -21,14 +22,20 @@ export const fetchPaginateJokes = async (
 };
 
 export const fetchRandomJokes = async () => {
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_OFFICIAL_JOKE_API
-      : process.env.NEXT_PUBLIC_OFFICIAL_JOKE_API_DEV;
-
-  const url = `${baseUrl}/jokes/ten/`;
+  const url = `${BASE_URL}/jokes/ten/`;
   const res = await fetch(url, {
     method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return res;
+};
+
+export const voteForJoke = async (id) => {
+  const url = `${BASE_URL}/jokes/${id}/vote/`;
+  const res = await fetch(url, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },

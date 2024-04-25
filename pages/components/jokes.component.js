@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { fetchPaginateJokes } from "../utils/fetch.jokes";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
+import VoteButton from "./vote.button.component";
 
 const Jokes = ({
   title,
@@ -15,6 +16,7 @@ const Jokes = ({
   const [showLoadMore, setShowLoadMore] = useState(showLoadMoreButton);
   const [data, setData] = useState(jokes);
   const page = useRef(1);
+
   const loadMoreData = async () => {
     setIsLoading(true);
     const newPage = page.current + 1;
@@ -40,6 +42,7 @@ const Jokes = ({
             <i className="text-sm self-end">@{joke.type}</i>
             <h4 className="text-lg font-medium">{joke.setup}</h4>
             <span className="text-lg">...{joke.punchline}</span>
+            <VoteButton jokeId={joke.id} votes={joke.votes} />
           </div>
         ))}
       </div>
