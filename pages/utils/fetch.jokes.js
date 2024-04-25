@@ -42,3 +42,5 @@ export const voteForJoke = async (id) => {
   });
   return res;
 };
+
+export default fetchPaginateJokes;
