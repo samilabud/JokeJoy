@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./pages/*"
+      ]
+    }
+  },
+  "typeAcquisition": {
+    "include": [
+      "jest"
+    ]
+  }
+}
