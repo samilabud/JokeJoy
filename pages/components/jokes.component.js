@@ -46,10 +46,10 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
   };
 
   return (
-    <div className="inline-block w-8/12 mt-10">
+    <div className="inline-block w-full mt-10">
       <div className="flex w-full justify-between">
         <h3 className="text-2xl font-bold text-amber-600 ml-3">{title}</h3>
-        <div className="flex justify-between w-5/12 flex-wrap">
+        <div className="flex justify-between h-32 xl:h-0 flex-col xl:flex-row xl:w-5/12 flex-wrap pr-4">
           <div>
             <span id="sortByLabel" className="cursor-pointer">
               Sort by:
@@ -104,7 +104,7 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
         ))}
       </div>
       {showLoadMore ? (
-        <div className="flex justify-end w-9/12">
+        <div className="flex justify-start m-3">
           {isLoading ? (
             <CircularProgress sx={{ color: "#FF3F00" }} />
           ) : (
