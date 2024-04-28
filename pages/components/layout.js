@@ -5,7 +5,7 @@ import "../../app/globals.css";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-row items-center flex-wrap w-full justify-between">
+    <div className="flex flex-col xl:flex-row items-center flex-wrap w-full justify-center lg:justify-between">
       <Head>
         <title>JokeJoy App</title>
         <meta name="description" content="A list of jokes to make you joy!" />
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
           <hr className="w-96 mt-10 hidden xl:block" />
           <div
             id="jokes-container"
-            className="flex flex-row justify-center items-center"
+            className="flex flex-col xl:flex-row justify-center items-center"
           >
             {children}
           </div>
@@ -41,8 +41,12 @@ const Layout = ({ children }) => {
           className="w-full flex flex-col items-center -mt-4"
         >
           <footer className="text-center">
-            Copyright,{" "}
-            <a href="https://samilabud.com" target="_blank">
+            <span>Copyright, </span>
+            <a
+              href="https://samilabud.com"
+              target="_blank"
+              className="text-blue-900 hover:text-amber-600"
+            >
               Samil Abud
             </a>
           </footer>

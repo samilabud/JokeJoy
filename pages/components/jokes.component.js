@@ -47,18 +47,18 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
 
   return (
     <div className="inline-block w-full mt-10">
-      <div className="flex w-full justify-between">
+      <div className="flex w-full justify-between mb-3">
         <h3 className="text-2xl font-bold text-amber-600 ml-3">{title}</h3>
-        <div className="flex justify-between h-32 xl:h-0 flex-col xl:flex-row xl:w-5/12 flex-wrap pr-4">
+        <div className="flex justify-between h-32 xl:h-0 flex-row xl:flex-row w-6/12 xl:w-5/12 flex-wrap pr-4">
           <div>
-            <span id="sortByLabel" className="cursor-pointer">
+            <span id="sortByLabel" className="cursor-pointer font-semibold">
               Sort by:
             </span>
             <Select
               labelId="sortByLabel"
               value={sortBy}
               onChange={handleSortByChange}
-              className="h-10 text-orange-500"
+              className="h-10 text-amber-600"
             >
               <MenuItem value="id">ID</MenuItem>
               <MenuItem value="type">Type</MenuItem>
@@ -67,14 +67,14 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
             </Select>
           </div>
           <div>
-            <span id="orderByLabel" className="cursor-pointer">
+            <span id="orderByLabel" className="cursor-pointer font-semibold">
               Order by:
             </span>
             <Select
               labelId="orderByLabel"
               value={orderBy}
               onChange={handleOrderByChange}
-              className="h-10 text-orange-500"
+              className="h-10 text-amber-600"
             >
               <MenuItem value="asc">ASC</MenuItem>
               <MenuItem value="desc">DESC</MenuItem>
@@ -83,14 +83,16 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
           <Button
             onClick={applyFilter}
             variant="contained"
-            sx={{ backgroundColor: "#FF3F00" }}
-            className="hover:bg-orange-600 h-10"
+            className="bg-amber-600 hover:bg-amber-700 h-10"
           >
             Apply
           </Button>
         </div>
       </div>
-      <div id="jokes-container" className="flex flex-wrap">
+      <div
+        id="jokes-container"
+        className="flex flex-wrap justify-center xl:justify-start"
+      >
         {data.map((joke) => (
           <div
             className="joke-block flex flex-col shadow-md shadow-black border-solid border-black border-2 m-3 p-3 rounded-md max-w-72 min-w-56"
@@ -111,8 +113,7 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
             <Button
               onClick={() => loadMoreData()}
               variant="contained"
-              sx={{ backgroundColor: "#FF3F00" }}
-              className="hover:bg-orange-600"
+              className="bg-amber-600 hover:bg-amber-700"
             >
               Load More
             </Button>

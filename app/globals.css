@@ -7,8 +7,7 @@ body {
 }
 
 #left-navigation {
-  @apply w-full xl:w-2/12 p-3 xl:fixed top-1/4 mt-2 rounded-md shadow-md shadow-black box-border border-spacing-1 border-solid border-black border-2 m-3 self-center;
-  min-width: 245px;
+  @apply xl:w-2/12 p-3 xl:fixed top-1/4 mt-2 rounded-md shadow-md shadow-black box-border border-spacing-1 border-solid border-black border-2 m-3 self-center;
 }
 hr {
   border: 0;
