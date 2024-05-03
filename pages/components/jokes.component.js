@@ -49,7 +49,7 @@ const Jokes = ({ title, jokes, showLoadMoreButton = true, type = "all" }) => {
     <div className="inline-block w-full mt-10">
       <div className="flex w-full justify-between mb-3">
         <h3 className="text-2xl font-bold text-amber-600 ml-3">{title}</h3>
-        <div className="flex justify-between h-32 xl:h-0 flex-row xl:flex-row w-6/12 xl:w-5/12 flex-wrap pr-4">
+        <div className="flex justify-end lg:justify-between items-end h-32 xl:h-0 flex-column lg:flex-row w-6/12 lg:w-5/12 flex-wrap pr-4 min-w-44">
           <div>
             <span id="sortByLabel" className="cursor-pointer font-semibold">
               Sort by:
